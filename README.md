@@ -1,5 +1,11 @@
 # lovely-ghost-writer
 
+<details>
+  <summary>画面</summary>
+  <img width="1321" height="1073" alt="image" src="https://github.com/user-attachments/assets/81e85e00-9580-425c-b09e-d8c21397b554" />
+</details>
+
+
 ## セットアップ手順
 
 ### 1. リポジトリのクローン
