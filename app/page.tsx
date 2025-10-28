@@ -74,21 +74,20 @@ export default function Home() {
           <div className="w-32 h-px bg-stone-500 mx-auto mt-4"></div>
         </div>
 
-				<div className="mb-8 flex justify-center">
-					<p className="text-xs text-stone-400 font-serif tracking-wide leading-relaxed">
+				<div className="mb-12 flex justify-center">
+					<p className="text-xs text-stone-400 font-serif">
 						※ 占い結果はAIによって生成されたものであり、科学的根拠はありません。
 						<br />
 						娯楽目的としてお楽しみください。
 					</p>
 				</div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-6 lg:gap-16">
-          {/* 入力フォーム */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-16">
           <div className="h-fit w-full mx-auto lg:mx-0">
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div>
                 <label className="block text-stone-400 text-xs tracking-[0.2em] mb-1.5 font-serif">
-                  名前
+                  名前 (ニックネーム可)
                 </label>
                 <input
                   type="text"
@@ -96,8 +95,7 @@ export default function Home() {
                   onChange={(e) => setName(e.target.value)}
 									disabled={isLoading || isAnimating}
                   required
-                  className="w-full px-1 py-1.5 bg-transparent border-b border-stone-700 text-stone-100 focus:outline-none focus:border-stone-500 placeholder:text-stone-700 text-sm sm:text-base transition-colors"
-                  placeholder=""
+                  className="w-full px-1 py-1.5 border-b border-stone-700 text-stone-100 focus:outline-none focus:border-stone-500 text-sm sm:text-base"
                 />
               </div>
 
@@ -106,13 +104,12 @@ export default function Home() {
                   生年月日
                 </label>
                 <input
-                  type="text"
+                  type="date"
                   value={birthDate}
                   onChange={(e) => setBirthDate(e.target.value)}
 									disabled={isLoading || isAnimating}
                   required
-                  placeholder="例: 1990年1月1日"
-                  className="w-full px-1 py-1.5 bg-transparent border-b border-stone-700 text-stone-100 focus:outline-none focus:border-stone-500 placeholder:text-stone-600 text-sm sm:text-base transition-colors"
+                  className="w-full px-1 py-1.5 border-b border-stone-700 text-stone-100 focus:outline-none focus:border-stone-500 text-sm sm:text-base"
                 />
               </div>
 
@@ -125,7 +122,7 @@ export default function Home() {
                   onChange={(e) => setBloodType(e.target.value)}
 									disabled={isLoading || isAnimating}
                   required
-                  className="w-full px-1 py-1.5 bg-transparent border-b border-stone-700 text-stone-100 focus:outline-none focus:border-stone-500 text-sm sm:text-base transition-colors appearance-none cursor-pointer"
+                  className="w-full px-1 py-1.5 border-b border-stone-700 text-stone-100 focus:outline-none focus:border-stone-500 text-sm sm:text-base cursor-pointer"
                 >
                   <option value="A" className="bg-neutral-800">A型</option>
                   <option value="B" className="bg-neutral-800">B型</option>
@@ -147,15 +144,15 @@ export default function Home() {
           </div>
 
           {/* 占い結果 */}
-          <div className="relative min-h-[400px]">
+          <div className="relative min-h-[400px] md:col-span-2 w-full mx-auto lg:mx-0">
             <div className="relative h-full">
               <div
-								className="relative p-10 shadow-2xl min-h-[600px] flex flex-col overflow-hidden"
+								className="relative p-10 min-h-[600px] flex flex-col overflow-hidden opacity-90"
 								style={{
 									clipPath: 'polygon(2% 0.5%, 5% 1%, 10% 0.3%, 15% 1.2%, 20% 0.8%, 30% 0.5%, 40% 1%, 50% 0.3%, 60% 0.8%, 70% 0.5%, 80% 1.2%, 90% 0.7%, 95% 0.3%, 98.5% 1%, 99% 5%, 99.5% 10%, 99.8% 20%, 99.3% 30%, 99.7% 40%, 99.5% 50%, 99.2% 60%, 99.6% 70%, 99.4% 80%, 99.8% 90%, 99.3% 95%, 98.5% 98%, 95% 99%, 90% 99.5%, 80% 99.2%, 70% 99.6%, 60% 99.3%, 50% 99.7%, 40% 99.4%, 30% 99.8%, 20% 99.2%, 10% 99.5%, 5% 99.3%, 1% 98.5%, 0.5% 95%, 0.8% 90%, 0.3% 80%, 0.6% 70%, 0.5% 60%, 0.8% 50%, 0.4% 40%, 0.7% 30%, 0.3% 20%, 0.6% 10%, 1% 5%)',
 								}}>
                 <div
-                  className="absolute inset-0 opacity-90"
+                  className="absolute inset-0"
                   style={{
                     backgroundImage: `url('/vintage_paper_texture.png')`,
                     backgroundSize: 'cover',
@@ -164,7 +161,7 @@ export default function Home() {
                 ></div>
 
                 <div className="relative z-10 flex-1">
-                  <pre className="whitespace-pre-wrap text-base md:text-lg leading-relaxed font-semibold font-serif bg-linear-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
+                  <pre className="whitespace-pre-wrap text-base md:text-lg leading-relaxed font-semibold font-serif text-stone-800">
                     {displayedText}
                   </pre>
                 </div>
