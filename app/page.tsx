@@ -161,9 +161,15 @@ export default function Home() {
                 ></div>
 
                 <div className="relative z-10 flex-1">
-                  <pre className="whitespace-pre-wrap text-base md:text-lg leading-relaxed font-semibold font-serif text-stone-800">
-                    {displayedText}
-                  </pre>
+									{isLoading && !isAnimating ? (
+										<div className="absolute inset-0 flex items-center justify-center animate-pulse font-serif text-stone-800" aria-label="読み込み中">
+											占いを生成中...
+										</div>
+									) : (
+										<pre className="whitespace-pre-wrap text-base md:text-lg leading-relaxed font-semibold font-serif text-stone-800">
+											{displayedText}
+										</pre>
+									)}
                 </div>
               </div>
             </div>
