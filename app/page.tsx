@@ -64,6 +64,17 @@ export default function Home() {
     }, 100);
   };
 
+  const handleCopy = async () => {
+    if (!displayedText) return;
+
+    try {
+      await navigator.clipboard.writeText(displayedText);
+      alert('占い結果をコピーしました');
+    } catch (error) {
+      alert('コピーに失敗しました');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-neutral-900 flex items-center justify-center p-4 sm:p-8">
       <div className="w-full max-w-5xl">
@@ -172,6 +183,16 @@ export default function Home() {
 									)}
                 </div>
               </div>
+							{displayedText && !isLoading && !isAnimating && (
+								<div className="mt-4 flex justify-center">
+									<button
+										onClick={handleCopy}
+										className="font-serif px-6 py-2 bg-stone-800/30 hover:bg-stone-800/40 text-stone-300 border border-stone-700 text-xs rounded cursor-pointer"
+									>
+										コピー
+									</button>
+								</div>
+							)}
             </div>
           </div>
         </div>
