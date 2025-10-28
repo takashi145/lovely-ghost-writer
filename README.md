@@ -2,7 +2,8 @@
 
 <details>
   <summary>画面</summary>
-  <img width="1321" height="1073" alt="image" src="https://github.com/user-attachments/assets/81e85e00-9580-425c-b09e-d8c21397b554" />
+  <img width="1374" height="1093" alt="image" src="https://github.com/user-attachments/assets/fc228c17-79e0-43c8-947c-bfc361b036e0" />
+
 </details>
 
 
